@@ -32,34 +32,9 @@
 //			$('.tm > li').each( function( index ) {
 //				$(this).addClass('item-' + index);
 //			});
-//			var menuHover = function() {
-//				$('.tm > li').hover(function() {
-//					$(this).addClass('on');
-//					var index = $('.tm > li').index(this);
-////				$( "span" ).text( "That was div index #" + index );
-//					$('.sm > li:eq('+index+')').show();
-//				}, function() {
-//					$(this).removeClass('on');
-//					$('.sm > li').hide();
-//				});
-//			};
-//			menuHover();
-//			$('.tm > li').off('mouseenter mouseleave');
-
-
 		});
 
 		var pcMenu = function() {
-//			$('.tm > li > a').off('click');
-//			$('.tm > li').hover(function() {
-//				$('.tm > li').removeClass('on');
-//				$(this).addClass('on');
-//				var index = $('.tm > li').index(this);
-//				$('.sm > li:eq('+index+')').show();
-//			}, function() {
-//				$(this).removeClass('on');
-//				$('.sm > li').hide();
-//			});
 			$('.tm > li > a').on({
 				focus: function() {
 					$('.tm > li').removeClass('on');
