@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* --------------- Header Layout --------------- */
+
+/* --------------- 사이트맵 --------------- */
+	.util {
+		& > li {
+			&:not(.icon) {
+				a:before {
+					display: inline-block;
+					content: '';
+					height: 11px;
+					line-height: 11px;
+					vertical-align: top;
+					border-left: 1px solid #696464;
+					margin-right: 8px;
+					margin-top: 10px;
+				}
+				@include respond-to('md') {
+					display: none;
+				}
+			}
+		}
+	}

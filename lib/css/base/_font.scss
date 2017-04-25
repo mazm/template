@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* ------------------------- NotoKR  ------------------------- */
+	@font-face {
+		font-family: 'notokr-regular';
+		src: font('notokr-regular.eot');
+		src: font('notokr-regular.eot?#iefix') format('embedded-opentype'),
+		font('notokr-regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'notokr-medium';
+		src: font('notokr-medium.eot');
+		src: font('notokr-medium.eot?#iefix') format('embedded-opentype'),
+		font('notokr-medium.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'notokr-bold';
+		src: font('notokr-bold.eot');
+		src: font('notokr-bold.eot?#iefix') format('embedded-opentype'),
+		font('notokr-bold.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+/* ------------------------- NotoKR Hestia ------------------------- */
+	//@font-face {
+	//	font-family: 'h-notokr-light';
+	//	src: font('NotoSansKR-Light-Hestia.eot');
+	//	src: font('NotoSansKR-Light-Hestia?#iefix') format('embedded-opentype'),
+	//	font('NotoSansKR-Light-Hestia.woff') format('woff');
+	//	font-weight: normal;
+	//	font-style: normal;
+	//}
+	//@font-face {
+	//	font-family: 'h-notokr-regular';
+	//	src: font('NotoSansKR-Medium-Hestia.eot');
+	//	src: font('NotoSansKR-Medium-Hestia?#iefix') format('embedded-opentype'),
+	//	font('NotoSansKR-Medium-Hestia.woff') format('woff');
+	//	font-weight: normal;
+	//	font-style: normal;
+	//}
+	//@font-face {
+	//	font-family: 'h-notokr-bold';
+	//	src: font('NotoSansKR-Bold-Hestia.eot');
+	//	src: font('NotoSansKR-Bold-Hestia?#iefix') format('embedded-opentype'),
+	//	font('NotoSansKR-Bold-Hestia.woff') format('woff');
+	//	font-weight: normal;
+	//	font-style: normal;
+	//}
+
+/* ------------------------- WebFont NotoKr  ------------------------- */
+	@mixin regular {
+		font-family: 'Malgun Gothic', sans-serif;
+		//font-family: 'notokr-regular', sans-serif;
+		//font-family: 'h-notokr-light', sans-serif;
+		font-weight: normal;
+	}
+	@mixin medium {
+		font-family: 'Malgun Gothic', sans-serif;
+		//font-weight: bold;
+		//font-family: 'notokr-medium', sans-serif;
+		//font-family: 'h-notokr-regular', sans-serif;
+		font-weight: bold;
+	}
+	@mixin bold {
+		//font-family: 'Malgun Gothic', sans-serif;
+		//font-weight: bold;
+		font-family: 'notokr-medium', sans-serif;
+		//font-family: 'h-notokr-bold', sans-serif;
+		font-weight: normal;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@include bold;
+	}
+	big, strong, b, dt, th {
+		@include medium;
+	}
+	//.no-textshadow {
+	//	h1, h2, h3, h4, h5, h6 {
+	//		font-family: 'Malgun Gothic', sans-serif;
+	//		font-weight: bold;
+	//	}
+	//	big, strong, b, dt, th {
+	//		font-family: 'Malgun Gothic', sans-serif;
+	//		font-weight: bold;
+	//	}
+	//	//* {
+	//	//	font-family: 'Malgun Gothic', sans-serif !important;
+	//	//}
+	//	body {
+	//		font-family: 'Malgun Gothic', sans-serif;
+	//	}
+	//}
+	//p.desc-b {
+	//	font-family: 'notokr-regular', sans-serif;
+	//	font-weight: normal;
+	//	font-size: 14px;
+	//	line-height: 1.5;
+	//}

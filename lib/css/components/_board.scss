@@ -1,0 +1,302 @@
+@charset "utf-8";
+/* ------------------------- Select Style  ------------------------- */
+	select {
+		//min-width: 100px;
+		height: 30px;
+		padding: 4px 5px 4px 5px;
+		font-family: inherit;
+		vertical-align: middle;
+		//background: image('common/select_box1.png') no-repeat right 50% #fff;
+		border: 1px solid #898989;
+		border-radius: 0px;
+		//-webkit-appearance: none;
+		//-moz-appearance: none;
+		//appearance: none;
+		//&::-ms-expand {
+		//	display: none;
+		//}
+		.no-textshadow & {
+			background: #fff;
+			padding: 4px 5px 4px;
+		}
+	}
+	.no-canvas select {
+		padding: 4px 10px 3px 10px;
+	}
+
+	.inbox, input[type=text].inbox {
+		@include font-size(1.4);
+		margin: 0;
+		padding: 0 5px 0 5px;
+		border: 1px solid #898989;
+		background: #fff;
+		color: #333;
+		line-height: 30px;
+		height: 30px;
+		box-sizing: border-box;
+		&.alR {
+			text-align: right;
+			padding-right: 5px;
+			width: 83% !important;
+			box-sizing: border-box;
+			margin-left: 5px;
+			margin-right: 5px;
+			//box-sizing: content-box;
+		}
+	}
+	textarea.inbox {
+		height: auto;
+		line-height: 1.5 !important;
+	}
+	.inbox.find {
+		background: #f0f0f0;
+	}
+	.inbox.big {
+		line-height: 30px;
+		height: 30px;
+	}
+
+/* ------------------------- Checkbox / Radio Style  ------------------------- */
+	input[type="checkbox"].custorm {
+		opacity: 0;
+		position: absolute;
+		& + label span {
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			margin: -1px 4px 0 0;
+			vertical-align: middle;
+			background: image('common/check_radio_sheet.png') left top no-repeat;
+			cursor: pointer;
+		}
+		&:focus {
+			& + label span {
+				outline: 1px dotted #333;
+				outline: -webkit-focus-ring-color auto 5px;
+			}
+		}
+		&:checked {
+			& + label span {
+				background: image('common/check_radio_sheet.png') -24px top no-repeat;
+				//outline: 1px dotted #333;
+			}
+		}
+	}
+	input[type="radio"].custorm {
+		opacity: 0;
+		position: absolute;
+		& + label span {
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			margin: -1px 4px 0 0;
+			vertical-align: middle;
+			background: image('common/check_radio_sheet.png') -48px top no-repeat;
+			cursor: pointer;
+		}
+		&:focus {
+			& + label span {
+				outline: 1px dotted #333;
+				outline: -webkit-focus-ring-color auto 5px;
+			}
+		}
+		&:checked {
+			//& + label {
+			//	color: #fff;
+			//	background: #1a237e;
+			//	border: 1px solid #1a237e;
+			//	outline: 1px dotted #333;
+			//}
+			& + label span {
+				background: image('common/check_radio_sheet.png') -72px top no-repeat;
+				//outline: 1px dotted #333;
+			}
+		}
+	}
+	.isChecked {
+		border: 1px solid green;
+		background: green;
+		padding: 20px;
+		border-radius: 10px;
+	}
+	.no-canvas {
+		input[type='checkbox'].custorm,
+		input[type='radio'].custorm {
+			position: static !important;
+			left: 0 !important;
+			width: 22px !important;
+			height: 22px !important;
+
+		}
+		input[type="checkbox"].custorm + label,
+		input[type="radio"].custorm + label {
+			display: inline-block !important;
+			width: auto !important;
+			border: 0 !important;
+			padding-left: 10px !important;
+			//background: #fff !important;
+			color: #333 !important;
+		}
+		input[type="checkbox"].custorm + label span,
+		input[type="radio"].custorm + label span{
+			display: none !important;
+		}
+		input[type="checkbox"].custorm,
+		input[type="radio"].custorm {
+			display: inline-block !important;
+		}
+	}
+/* ------------------------- Checkbox / Radio Favor Style  ------------------------- */
+	input[type="checkbox"].favor {
+		opacity: 0;
+		position: absolute;
+		& + label span:after {
+			content: "\f006";
+			font-family: 'FontAwesome', sans-serif;
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			margin: 0.3em 0 0 0;
+			vertical-align: middle;
+			//background: image('common/check_favor.png') 0 -78px no-repeat;
+			//background-size: cover;
+			cursor: pointer;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		&:focus {
+			& + label span:after {
+				outline: 1px dotted #333;
+			}
+		}
+		&:checked {
+			& + label span:after {
+				//background: image('common/check_favor.png') 0 top no-repeat;
+				outline: 1px dotted #333;
+				content: '\f005';
+				color: #ff9800;
+			}
+		}
+	}
+	input[type="radio"].favor {
+		opacity: 0;
+		position: absolute;
+		& + label span:after {
+			content: "\f006";
+			font-family: 'FontAwesome', sans-serif;
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			margin: 0.3em 0 0 0;
+			vertical-align: middle;
+			background: image('common/check_favor.png') -60px top no-repeat;
+			background-size: cover;
+			cursor: pointer;
+		}
+		&:focus {
+			& + label span:after {
+				outline: 1px dotted #333;
+			}
+		}
+		&:checked {
+			& + label span:after {
+				background: image('common/check_favor.png') 0 top no-repeat;
+				outline: 1px dotted #333;
+				content: '\f005';
+				color: #ff9800;
+			}
+		}
+	}
+	.no-canvas {
+		input[type='checkbox'].favor,
+		input[type='radio'].favor {
+			position: static;
+			left: 0;
+			width: 22px;
+			height: 22px;
+
+		}
+		input[type="checkbox"].favor + label span,
+		input[type="radio"].favor + label span{
+			display: none;
+		}
+		input[type="checkbox"].favor,
+		input[type="radio"].favor {
+			display: inline-block;
+		}
+	}
+
+/* ------------------------- Pagination ------------------------- */
+	.pagination {
+		overflow: hidden;
+		clear: both;
+		text-align: center;
+		line-height: 30px;
+		li {
+			display: inline-block;
+			margin: 0 1px;
+			//&:first-child {
+			//	a {
+			//		//margin-right: 5px;
+			//		//background: #ececec;
+			//	}
+			//}
+			//&:last-child {
+			//	a {
+			//		//margin-right:5px;
+			//		background:#ececec;
+			//	}
+			//}
+			a {
+				overflow: hidden;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				margin: 0 0;
+				//padding-top: 7px;
+				border: 1px solid #cecece;
+				border-radius: 2px;
+				text-decoration: none;
+				vertical-align: top;
+				&.prev {
+					background: image('common/ico_prev_next.png') no-repeat 0 0;
+				}
+				&.next {
+					background: image('common/ico_prev_next.png') no-repeat 0 -30px;
+				}
+				@include respond-to('xs') {
+					width: 27px;
+					height: 27px;
+				}
+			}
+			&.page-next {
+				a {
+					//margin-right:5px;
+					background:#ececec;
+				}
+			}
+			&.active a {
+				border-color: #0195ea;
+				color: #0195ea;
+				font-weight: bold;
+				text-decoration: underline;
+			}
+		}
+		a:hover,
+		a:focus {
+			border-color: #0195ea;
+			color: #0195ea;
+			font-weight: bold;
+			text-decoration: underline;
+			&.prev {
+				background: image('common/ico_prev_next.png') no-repeat -30px 0;
+			}
+			&.next {
+				background: image('common/ico_prev_next.png') no-repeat -30px -30px;
+			}
+
+		}
+	}
+
+/* ------------------------- basic table  ------------------------- */

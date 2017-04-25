@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* ------------------------- Pop Up  ------------------------- */
+.grand-parent {
+	.parent {
+		@at-root body.page-about .child {
+			text-align: center;
+			width: percentage(100px / 50px); // 숫자값을 %로 변환
+			margin-top: round(10.4px); // 소숫점 이하 반올림
+			margin-bottom: ceil(104.666px); // 소숫점 이하 올림
+			padding-top: floor(10.4px); // 소숫점 이하 절사
+		}
+	}
+}
+$type: ocean;
+p {
+	color: if($type == ocean, blue, black); // color: blue;
+}
+p {
+	$type: monster;
+	@if $type == ocean {
+		color: blue;
+	} @else if $type == matador {
+		color: red;
+	} @else if $type == monster {
+		color: green;
+	} @else {
+		color: black;
+	}
+}
+@for $i from 1 through 3 {
+	.item-#{$i} { width: 2em * $i; }
+}
+
+// List
+@each $animal in puma, sea-slug, egret, salamander {
+	.#{$animal}-icon {
+		background-image: url('/images/#{$animal}.png');
+	}
+}
+// Map
+@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+	#{$header} {
+		font-size: $size;
+	}
+}
+$i: 6;
+@while $i > 0 {
+	.item-#{$i} { width: 2em * $i; }
+	$i: $i - 2;
+}
+// vendor prefix
+@mixin css3($property, $value) {
+	@each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+		#{$prefix}#{$property}: $value;
+	}
+}
+.border_radius {
+	@include css3(transition, 0.5s);
+}
+// opacity
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	$opacityIE: $opacity * 100;
+	filter: alpha(opacity=$opacityIE);
+}
+.box {
+	@include opacity(0.5);
+}
+// absolute position
+@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+.box {
+	@include absPosition(5px, 20px, 10px, 15px);
+}
+// Function
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+	@return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+#sidebar { width: grid-width(5); }  // width: 240px;
+
+$foundation-palette: (
+	primary: #E44347,
+	mars: #D7525C,
+	saturn: #E4B884,
+	neptune: #5147D7,
+);
+.mars {
+	color: map-get($foundation-palette, mars);
+}
+
+
+$width: 100px;
+#foo {
+	width: $width + 10; // 110px
+}
+#bar {
+	width: $width + 10in; // 1060px
+}
+
+@mixin calc($prop, $val) {
+	@each $pre in -webkit-, -moz- {
+		#{$prop}: $pre + calc(#{$val});
+	}
+	#{$prop}: calc(#{$val});
+}
+.calc {
+	@include calc( width, '100% - 50px' );
+}

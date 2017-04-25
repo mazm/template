@@ -1,0 +1,62 @@
+@charset "utf-8";
+$a-tags: 'a, a:active, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+$fr: 'Nanum Reg', sans-serif;
+$fb: 'Nanum Bold', sans-serif;
+// Color
+//$c-royal: #1a237e;
+//$c-skyblue: #2196f3;
+//$c-orange: #e65100;
+//$c-kiwi: #82ac01;
+//$c-white: #fff;
+//$c-dark: #424242;
+//$c-gray: #616161;
+//$csky: #85feff;
+// Font Color
+//$t-base: #333;
+//$t-whige: #fff;
+//$t-blue: #2196f3;
+//$t-orange: #e65100;
+$base: #333;
+$cbase: #333;
+$pcr: #b3392e;
+$pcb: #1f5c9b;
+
+$blue1: #1a237e;
+$blue2: #034273;
+$blue3: #2196f3;
+$blue4: #bbdefb;
+
+$green1: #33691e;
+$green2: #82ac01;
+$green3: #8bc34a;
+$green4: #dcedc8;
+$green5: #d9300;
+
+$red1: #b71c1c;
+$red2: #f44336;
+$red3: #ffcdd2;
+
+$orange1: #e65100;
+$orange2: #ff9800;
+$orange3: #ffe0b2;
+
+$yellow1: #f57f17;
+$yellow2: #ffeb3b;
+$yellow3: #fff59d;
+
+$black1: #424242;
+$black2: #616161;
+$black3: #9e9e9e;
+$black4: #e0e0e0;
+$black5: #eeeeee;
+
+$breakpoints: (
+	'xlg': 		( max-width: 1140px ),
+	'lg':       ( max-width: 1023px ),
+	'md': 		( max-width: 805px ),
+	'sm': 		( max-width:  640px ),
+	'xms': 		( max-width:  414px ),
+	'xs': 		( max-width:  360px )
+	
+) !default;

@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* ****************************************************************************
+	@CreateDate   : 2016.09
+	@ModifyDate   :
+	@Description  : scss build
+	@Author       : namu
+***************************************************************************** */
+// .seletor Order {
+// 	Layout Properties (position, float, clear, display, overflow, z-index)
+// 	Box Model Properties (width, height, margin, padding)
+// 	Visual Properties (color, background, border, box-shadow)
+// 	Typography Properties (font-size, font-family, text-align, text-transform)
+// 	Misc Properties (cursor)
+// 	}
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/functions';
+//@import 'vendors/font-awesome';
+
+@import 'base/reset';
+@import 'base/font';
+@import 'base/common';
+
+@import 'grid/layout';
+@import 'grid/lnb';
+@import 'grid/snb';
+@import 'grid/footer';
+//@import 'grid/top';
+
+@import 'components/buttons';
+@import 'components/board';
+
+@import 'pages/main';
+@import 'pages/main1';
+@import 'pages/main2';
+@import 'pages/main3';
+@import 'pages/tmain';
+@import 'pages/mymain';
+
+@import 'pages/page';
+@import 'pages/popup';
+@import 'base/print';
+
+#vp-genie {
+	background: rgba(255,0,0,.75);
+}
+#vp-genie:after {
+	display: block;
+	padding: 10px;
+	color: #ff0;
+	font-weight: bold;
+	content: 'Default : 1141 ~ ';
+	letter-spacing: 0;
+	//background: rgba(255,0,0,.75);
+}
+body:after {
+	content: 'default PC';
+	font-size: 0;
+	display:none;
+}
+@include respond-to('xlg') {
+	#vp-genie:after { content: 'xlg mobile : 1140 - 1024'; }
+	body:after {
+		content: 'xlarge PC';
+		font-size: 0;
+	}
+}
+@include respond-to('lg') {
+	#vp-genie:after { content: 'lg : 1023 - 806'; }
+	body:after {
+		content: 'lg MOBILE';
+		font-size: 0;
+	}
+}
+@include respond-to('md') {
+	#vp-genie:after { content: 'md : 805 - 641'; }
+	body:after {
+		content: 'md MOBILE';
+		font-size: 0;
+	}
+}
+@include respond-to('sm') {
+	#vp-genie:after { content: 'sm: 640 - 361'; }
+	body:after {
+		content: 'sm MOBILE';
+		font-size: 0;
+	}
+}
+@include respond-to('xs') {
+	#vp-genie:after { content: 'xs: 360 - '; }
+	body:after {
+		content: 'xs MOBILE';
+		font-size: 0;
+	}
+}
+
+head {font-family:"PC";}
+body:before{ content:"PC"; display:none;}
+
+@media screen and (max-width: 805px) {
+	head { font-family:"MOBILE";}
+	body:before{content:"MOBILE";}
+}
+@media screen and (min-width: 806px) {
+	head { font-family:"PC";}
+	body:before{content:"PC";}
+}
+//@media screen and (min-width: 641px) {
+//	head { font-family:"SM";}
+//	body:before{content:"SM";}
+//}
+
+//$colour1: rgb(255,255,255); // white
+//$colour2: rgb(255,0,0); // red
+//$colour3: rgb(135,206,250); // sky blue
+//$colour4: rgb(255,255,0);   // yellow
+//
+//$colors: $colour1, $colour2, $colour3, $colour4;
+//
+//@for $i from 1 through length($colors) {
+//	#cp#{$i} {
+//		background-color: rgba(nth($colors, $i), 0.6);
+//
+//		&:hover {
+//			background-color: rgba(nth($colors, $i), 1);
+//			cursor: pointer;
+//		}
+//	}
+//}
+//$colours:   rgb(255,255,255), // white
+//			rgb(255,0,0),     // red
+//			rgb(135,206,250), // sky blue
+//			rgb(255,255,0);   // yellow
+//
+//@each $colour in $colours {
+//	#cp#{$colour} {
+//		background-color: rgba($colour, 0.6);
+//
+//		&:hover {
+//			background-color: rgba($colour, 1);
+//			cursor: pointer;
+//		}
+//	}

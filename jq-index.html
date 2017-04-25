@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="Description" content="">
+	<meta name="keywords" content="">
+	<meta name="Author" content="yoon">
+	<style>
+		.tm { width: 100%; overflow: hidden; }
+		.tm > li { float: left; width: 20%; }
+		.tm > li.on { background: #fafafa; }
+
+		.sm { width: 100%; overflow: hidden; }
+		.sm li { width: 100%; display: none; }
+		head { font-family: "PC"; }
+
+		body:before { content: "PC"; display: none; }
+
+		@media screen and (max-width: 805px) { head { font-family: "MOBILE"; }
+			body:before { content: "MOBILE"; } }
+		@media screen and (min-width: 806px) { head { font-family: "PC"; }
+			body:before { content: "PC"; } }
+
+	</style>
+	<!--<script src="./src/modernizr-custom.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$(".hamburger").click(function () {
+				$(this).toggleClass("is-active");
+			});
+
+//			$('.tm > li').each( function( index ) {
+//				$(this).addClass('item-' + index);
+//			});
+//			var menuHover = function() {
+//				$('.tm > li').hover(function() {
+//					$(this).addClass('on');
+//					var index = $('.tm > li').index(this);
+////				$( "span" ).text( "That was div index #" + index );
+//					$('.sm > li:eq('+index+')').show();
+//				}, function() {
+//					$(this).removeClass('on');
+//					$('.sm > li').hide();
+//				});
+//			};
+//			menuHover();
+//			$('.tm > li').off('mouseenter mouseleave');
+
+
+		});
+
+		var pcMenu = function() {
+//			$('.tm > li > a').off('click');
+//			$('.tm > li').hover(function() {
+//				$('.tm > li').removeClass('on');
+//				$(this).addClass('on');
+//				var index = $('.tm > li').index(this);
+//				$('.sm > li:eq('+index+')').show();
+//			}, function() {
+//				$(this).removeClass('on');
+//				$('.sm > li').hide();
+//			});
+			$('.tm > li > a').on({
+				focus: function() {
+					$('.tm > li').removeClass('on');
+					$(this).parent().addClass('on');
+					var index = $('.tm > li > a').index(this);
+					$('.sm > li:eq('+index+')').show();
+				},
+				focusout: function() {
+					$(this).parent().removeClass('on');
+					$('.sm > li').hide();
+				},
+				mouseenter: function() {
+					$('.tm > li').removeClass('on');
+					$(this).parent().addClass('on');
+					var index = $('.tm > li > a').index(this);
+					$('.sm > li:eq('+index+')').show();
+				},
+				mouseleave: function() {
+					$(this).parent().removeClass('on');
+					$('.sm > li').hide();
+				}
+			});
+		};
+		var mobileMenu = function() {
+//			$('.tm > li > a').off('mouseenter mouseleave');
+			$('.tm > li > a').click(function() {
+				$('.tm > li').removeClass('on');
+				$('.sm > li').hide();
+				$(this).parent().addClass('on');
+				var index = $('.tm > li > a').index(this);
+				$('.sm > li:eq('+index+')').show();
+			});
+		};
+		var menuReset = function() {
+			$('.tm > li > a').off();
+		};
+
+
+		var eventload = {
+			add: function(elem, type, fn) {
+				if (elem.attachEvent) {
+					elem['e'+type+fn] = fn;
+					elem[type+fn] = function() {elem['e'+type+fn](window.event);}
+					elem.attachEvent('on'+type, elem[type+fn]);
+				} else
+					elem.addEventListener(type, fn, false);
+			}
+		};
+		var currentMQ = "unknown";
+		var mqSync = function(){
+			if (window.opera) {
+				var activeMQ = window.getComputedStyle(document.body,':before').getPropertyValue('content');
+			}
+			else if (window.getComputedStyle) {
+				var activeMQ = window.getComputedStyle(document.head,null).getPropertyValue('font-family');
+			}
+			else {
+				window.getCompStyle = function(el, pseudo) {
+					this.el = el;
+					this.getPropertyValue = function(prop) {
+						var re = /(\-([a-z]){1})/g;
+						if (prop == 'float') prop = 'styleFloat';
+						if (re.test(prop)) {
+							prop = prop.replace(re, function () {
+								return arguments[2].toUpperCase();
+							});
+						}
+						return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+					}
+					return this;
+				}
+				var compStyle = window.getCompStyle(document.getElementsByTagName('head')[0], "");
+				var activeMQ = compStyle.getPropertyValue("font-family");
+			}
+			activeMQ = activeMQ.replace(/"/g, "");
+			activeMQ = activeMQ.replace(/'/g, "");
+
+			if (activeMQ != currentMQ) {
+				if (activeMQ === 'MOBILE') {
+					currentMQ = activeMQ;
+					console.log(currentMQ);
+					menuReset();
+					mobileMenu();
+				}
+				if (activeMQ === 'PC') {
+					currentMQ = activeMQ;
+					console.log(currentMQ);
+					menuReset();
+					pcMenu();
+
+				}
+			}
+		}; // End mqSync
+		$(document).ready(function($) {
+			mqSync();
+		});
+		eventload.add(window, "resize", mqSync);
+
+	</script>
+	<title>Title</title>
+</head>
+<body>
+
+	<ul class="tm">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+	</ul>
+
+	<ul class="sm">
+		<li><a href="#">11</a></li>
+		<li><a href="#">22</a></li>
+		<li><a href="#">33</a></li>
+		<li><a href="#">44</a></li>
+	</ul>
+
+</body>
+</html>
